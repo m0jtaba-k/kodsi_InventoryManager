@@ -13,11 +13,19 @@
         public void deleteItem(Item item)
         {
             items.Remove(item);
+            Console.WriteLine("item removed from inventory");
         }
 
         public void updateItem(Item item)
         {
+            Console.WriteLine("update" +  item.getName());
+            item.setName(Console.ReadLine());
+            item.setType(Console.ReadLine());
+        }
 
+        public Item readItem(Item item)
+        {
+            return item;
         }
     }
 }

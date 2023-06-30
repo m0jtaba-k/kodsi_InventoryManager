@@ -9,12 +9,23 @@ namespace InventoryManager
     public class Item
     {
         private String name { get; set; }
-        private String type { get; }
+        private String type { get; set; }
 
-        public Item(String name, String type)
+        public Item()
         {
-            this.name = name;
+            setName(name);
             setType(type);
+        }
+
+        public String getName() 
+        {
+            return name;
+        }
+
+        public void setName(String name) 
+        {
+            Console.WriteLine("enter the item's name");
+            this.name = Console.ReadLine();
         }
         public void setType(String type)
         {
@@ -24,21 +35,26 @@ namespace InventoryManager
             switch (choice)
             {
                 case 'A':
-                    type = 'Weapon';
+                    this.type = "Weapon";
                     break;
                 case 'B':
-                    type = 'Armour';
+                    this.type = "Armour";
                     break;
                 case 'C':
-                    type = 'Consumable';
+                    this.type = "Consumable";
                     break;
                 case 'D':
-                    type = 'Throwable';
+                    this.type = "Throwable";
                     break;
             }
         }
 
-
+        override
+            public string ToString()
+        {
+            return "item name: " + name
+                + "\nitem type: " + type;
+        }
 
     }
 }
