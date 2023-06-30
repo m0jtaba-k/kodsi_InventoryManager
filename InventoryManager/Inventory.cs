@@ -18,7 +18,8 @@
 
         public void updateItem(Item item)
         {
-            Console.WriteLine("update" +  item.getName());
+            Console.WriteLine("name the item you want to update");
+            items.Find
             item.setName(Console.ReadLine());
             item.setType(Console.ReadLine());
         }

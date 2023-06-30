@@ -1,12 +1,29 @@
 ﻿using InventoryManager;
 
 Inventory inventory1 = new Inventory();
-Item I1 = new Item();
 
-inventory1.addItem(I1);
-Console.WriteLine(I1.ToString());
-inventory1.updateItem(I1);
-Console.WriteLine(I1.ToString());
-inventory1.deleteItem(I1);
+while (true)
+{
+    Console.WriteLine("Choose an option:");
+    Console.WriteLine("1. Add an item" +
+        "\n2.Update an item" +
+        "\n3.Delete an item" +
+        "\n4.List all items");
+    var choice = int.Parse(Console.ReadLine());
+
+    switch (choice)
+    {
+        case 1:
+            {
+                Item i1 = new Item();
+                inventory1.addItem(i1);
+                break;
+            }
+        case 2:
+            {
+
+            }
+    }
+}
 
 
