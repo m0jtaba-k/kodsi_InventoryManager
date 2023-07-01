@@ -2,31 +2,38 @@
 {
     public class Inventory
     {
-        private int currentSize;
-        List<Item> items = new List<Item>();
+        private readonly int maxSize;
+        private readonly List<Item> items = new();
 
-        public void addItem(Item item)
+        public void AddItem(string name, int type)
         {
-             items.Add(item);
+            var currentId = items.Max(item => item.Id) + 1;
+            items.Add(new(currentId, name, type));
         }
 
-        public void deleteItem(Item item)
+        public void DeleteItem(int id)
         {
+            var item = GetItemById(id); 
             items.Remove(item);
-            Console.WriteLine("item removed from inventory");
         }
 
-        public void updateItem(Item item)
+        public void UpdateItem(int id, string name, int type)
         {
-            Console.WriteLine("name the item you want to update");
-            items.Find
-            item.setName(Console.ReadLine());
-            item.setType(Console.ReadLine());
+            var item = GetItemById(id);
+            item.Update(name, type);
         }
 
-        public Item readItem(Item item)
+        public Item GetItemById(int id)
+            => items.FirstOrDefault(item => item.Id == id) 
+                ?? throw new Exception("Item not found");
+
+        public List<Item> GetAllItems()
         {
-            return item;
+            return items;
+        }
+        public IEnumerable<string> GetAllItemsAsStrings()
+        {
+            return items.Select(item => item.ToString());
         }
     }
 }
