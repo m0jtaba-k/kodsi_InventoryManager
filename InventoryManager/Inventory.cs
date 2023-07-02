@@ -7,7 +7,7 @@
 
         public void AddItem(string name, int type)
         {
-            var currentId = items.Max(item => item.Id) + 1;
+            var currentId = !items.Any() ? 1 : items.Max(item => item.Id) + 1;
             items.Add(new(currentId, name, type));
         }
 
